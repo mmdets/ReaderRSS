@@ -1,0 +1,299 @@
+<MainScreen>:
+	canvas:
+		Color:
+			rgb: 1, .94, .9, 1
+		Rectangle:
+			pos: self.pos
+			size: self.size
+	Label:
+		text : "Welcome To RSS Reader"
+		size_hint : .6, .1
+		pos_hint :{'x':.19, 'y':.80}
+		font_size : 30
+		color: 0, 0, 0, 1
+
+	Button:
+		text: 'Add New Link'
+		size_hint: None, None
+		pos_hint :{'x':.3, 'y':.69}
+		height : '60dp'
+		width : '300dp'
+		background_normal: ''
+		background_color: 1, .45, .1, 1
+		font_size : 20
+		on_press : root.go2addScreen()
+
+	Button:
+		text: 'Show All Links'
+		size_hint: None, None
+		pos_hint :{'x':.3, 'y':.58}
+		height : '60dp'
+		width : '300dp'
+		background_normal: ''
+		background_color: 1, .45, .1, 1
+		font_size : 20
+		on_press : root.go2showAllLinksScreen()
+
+	Button:
+		text: 'Delete Links'
+		size_hint: None, None
+		pos_hint :{'x':.3, 'y':.47}
+		height : '60dp'
+		width : '300dp'
+		background_normal: ''
+		background_color: 1, .45, .1, 1
+		font_size : 20
+		on_press : root.go2delete_linkScreen()
+
+	Button:
+		text: 'Show News'
+		size_hint: None, None
+		pos_hint :{'x':.3, 'y':.36}
+		height : '60dp'
+		width : '300dp'
+		background_normal: ''
+		background_color: 1, .45, .1, 1
+		font_size : 20
+		on_press : root.go2showScreen()
+
+	Button:
+		text: 'Find Links By Key Words'
+		size_hint: None, None
+		pos_hint :{'x':.3, 'y':.25}
+		height : '60dp'
+		width : '300dp'
+		background_normal: ''
+		background_color: 1, .45, .1, 1
+		font_size : 20
+		on_press : root.go2find_by_keywordScreen()
+
+
+	Button:
+		background_normal: ''
+		background_color: .6, .0, .0, 1
+		text: 'Quit'
+		size_hint: None, None
+		pos_hint :{'x':.3, 'y':.10}
+		height : '40dp'
+		width : '300dp'
+		font_size : 20
+		on_press : root.quit_press()
+
+
+<AddScreen>:
+	canvas:
+		Color:
+			rgb: 1, .94, .9, 1
+		Rectangle:
+			pos: self.pos
+			size: self.size
+	Label:
+		id: la1
+		text : "Write Your Link:"
+		size_hint: .6, .1
+		pos_hint :{'x':.2, 'y':.80}
+		font_size : 25
+		color: 0, 0, 0, 1
+
+	TextInput:
+		id: new_link
+		size_hint: .8, .1
+		pos_hint :{'x':.1, 'y':.70}
+
+	Button:
+		text: 'Add'
+		size_hint: None, None
+		pos_hint :{'x':.3, 'y':.45}
+		height : '60dp'
+		width : '300dp'
+		font_size : 20
+		background_normal: ''
+		background_color: 1, .45, .1, 1
+		on_press : root.add(new_link.text)
+
+	Label:
+		id: la2
+		text : ""
+		size_hint: .6, .1
+		pos_hint :{'x':.2, 'y':.3}
+		font_size : 20
+		color: 0, 0, 0, 1
+
+	Button:
+		background_normal: ''
+		background_color: .6, .0, .0, 1
+		text: 'Go To Main Screen'
+		size_hint: None, None
+		pos_hint :{'x':.3, 'y':.10}
+		font_size : 20
+		height : '40dp'
+		width : '300dp'
+		on_press : root.go2mainScreen()
+
+
+<Delete_linkScreen>:
+	canvas:
+		Color:
+			rgb: 1, .94, .9, 1
+		Rectangle:
+			pos: self.pos
+			size: self.size
+	Label:
+		id: ld1
+		text : "Write Link You Want To Delete:"
+		size_hint: .6, .1
+		pos_hint :{'x':.2, 'y':.80}
+		font_size : 25
+		color: 0, 0, 0, 1
+
+	TextInput:
+		id: link_to_delete
+		size_hint: .8, .1
+		pos_hint :{'x':.1, 'y':.70}
+
+	Button:
+		text: 'Delete'
+		size_hint: None, None
+		pos_hint :{'x':.3, 'y':.45}
+		height : '60dp'
+		width : '300dp'
+		font_size : 20
+		background_normal: ''
+		background_color: 1, .45, .1, 1
+		on_press : root.delete(link_to_delete.text)
+
+	Label:
+		id: ld2
+		text : ""
+		size_hint: .6, .1
+		pos_hint :{'x':.2, 'y':.3}
+		font_size : 20
+		color: 0, 0, 0, 1
+
+	Button:
+		background_normal: ''
+		background_color: .6, .0, .0, 1
+		text: 'Go to Main Screen'
+		size_hint: None, None
+		pos_hint :{'x':.3, 'y':.10}
+		font_size : 20
+		height : '40dp'
+		width : '300dp'
+		on_press : root.go2mainScreen()
+
+<ShowScreen>:
+	canvas:
+		Color:
+			rgb: 1, .94, .9, 1
+		Rectangle:
+			pos: self.pos
+			size: self.size
+	RstDocument:
+		id: text
+		text:
+		size_hint: .99, .73
+		pos_hint: {'x':.005, 'y':.25}
+		font_size : 20
+
+	Button:
+		text: 'Show'
+		size_hint: None, None
+		pos_hint :{'x':.3, 'y':.15}
+		height : '40dp'
+		width : '300dp'
+		font_size : 20
+		background_normal: ''
+		background_color: 1, .45, .1, 1
+		on_press : root.show_all()
+
+	Button:
+		background_normal: ''
+		background_color: .6, .0, .0, 1
+		text: 'Go To Main Screen'
+		size_hint: None, None
+		pos_hint :{'x':.3, 'y':.05}
+		font_size : 20
+		height : '40dp'
+		width : '300dp'
+		on_press : root.go2mainScreen()
+
+<Find_by_keywordScreen>:
+	canvas:
+		Color:
+			rgb: 1, .94, .9, 1
+		Rectangle:
+			pos: self.pos
+			size: self.size
+	RstDocument:
+		id: text2
+		text:
+		size_hint: .99, .73
+		pos_hint: {'x':.005, 'y':.25}
+		font_size : 20
+
+	TextInput:
+		id: key_word
+		text: 'Input key word'
+		size_hint: None, None
+		pos_hint :{'x':.15, 'y':.16}
+		height : '40dp'
+		width : '300dp'
+
+	Button:
+		text: 'Show'
+		size_hint: None, None
+		pos_hint :{'x':.55, 'y':.16}
+		height : '40dp'
+		width : '300dp'
+		font_size : 20
+		background_normal: ''
+		background_color: 1, .45, .1, 1
+		on_press : root.find_by_key(key_word.text)
+
+	Button:
+		background_normal: ''
+		background_color: .6, .0, .0, 1
+		text: 'Go To Main Screen'
+		size_hint: None, None
+		pos_hint :{'x':.3, 'y':.08}
+		font_size : 20
+		height : '40dp'
+		width : '300dp'
+		on_press : root.go2mainScreen()
+
+
+<ShowAllLinksScreen>:
+	canvas:
+		Color:
+			rgb: 1, .94, .9, 1
+		Rectangle:
+			pos: self.pos
+			size: self.size
+	TextInput:
+		id: label1
+		text : ""
+		size_hint: .6, .6
+		pos_hint :{'x':.2, 'y':.35}
+		font_size : 20
+
+	Button:
+		text: 'Show All Links'
+		size_hint: None, None
+		pos_hint :{'x':.3, 'y':.2}
+		height : '60dp'
+		width : '300dp'
+		font_size : 20
+		background_normal: ''
+		background_color: 1, .45, .1, 1
+		on_press : root.show_db()
+
+	Button:
+		background_normal: ''
+		background_color: .6, .0, .0, 1
+		text: 'Go To Main Screen'
+		size_hint: None, None
+		pos_hint :{'x':.3, 'y':.10}
+		height : '40dp'
+		width : '300dp'
+		font_size : 20
+		on_press : root.go2mainScreen()
